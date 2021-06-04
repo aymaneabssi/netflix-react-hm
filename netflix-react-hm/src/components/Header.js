@@ -5,7 +5,8 @@ import NotificationsIcon from '@material-ui/icons/Notifications';
 import AccountBoxIcon from '@material-ui/icons/AccountBox';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 const Header = ({ setSearchBarInput }) => {
-  const [searchBar, setSearchBar] = useState(false);
+  const [searchBar, setSearchBar] = useState(true);
+
   return (
     <Container>
       <FirstOptions>
@@ -34,12 +35,20 @@ const Header = ({ setSearchBarInput }) => {
       </FirstOptions>
       <SecondOptions>
         <Option>
-          <Input
-            searchBar={searchBar}
-            onKeyUp={(e) => {
-              setSearchBarInput(e.target.value);
+          <form
+            action='#'
+            onSubmit={(e) => {
+              e.preventDefault();
             }}
-          />
+          >
+            <Input
+              searchBar={searchBar}
+              onKeyUp={(e) => {
+                setSearchBarInput(e.target.value);
+              }}
+            />
+            <button type='submit'>wdq</button>
+          </form>
           <SearchIcon onClick={() => setSearchBar(!searchBar)} />
         </Option>
         <Option>
@@ -91,5 +100,8 @@ const Option = styled.div`
   }
   img {
     height: 60px;
+  }
+  button {
+    display: none;
   }
 `;

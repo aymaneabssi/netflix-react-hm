@@ -7,7 +7,7 @@ const Proposed = ({ data }) => {
       <ProposedItems>Is this wat are you looking for ?</ProposedItems>
       <Row>
         {data.map((item) => (
-          <Col>
+          <Col key={item.imdbID}>
             <img src={item.Poster} alt={item.Title} />
             <Title>{item.Title.slice(0, 24)}...</Title>
           </Col>
